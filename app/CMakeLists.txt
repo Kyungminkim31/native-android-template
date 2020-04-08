@@ -1,0 +1,16 @@
+cmake_minimum_required(VERSION 3.4.1)
+
+add_library( native-lib SHARED src/main/cpp/native-lib.cpp)
+
+#add_library( app-glue
+#             STATIC
+#             ${ANDROID_NDK}/sources/android/native_app_glue/android_native_app_glue.c)
+
+include_directories(src/main/cpp/include/)
+
+find_library(log-lib log)
+
+#target_link_libraries(native-lib app-glue ${log-lib})
+target_link_libraries(native-lib ${log-lib})
+
+
